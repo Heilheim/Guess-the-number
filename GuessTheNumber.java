@@ -3,17 +3,20 @@ import java.util.Scanner;
 
 public class GuessTheNumber {
     public static void main(String[] args) {
-            int number = new Random().nextInt(10);
+        int number = new Random().nextInt(10);
+        System.out.println("Guess the number from 0 to 9");
+        while (true) {
             int userCase = new Scanner(System.in).nextInt();
 
-            String result;
-            if (number == userCase) {
-                result = "Congratulations, you guessed the number!";
+            if (number > userCase) {
+                System.out.println("number > " + userCase + ". Try again:");
+            } else if (number < userCase) {
+                System.out.println("number < " + userCase + ". Try again:");
             } else {
-                result = "Sorry, but your number is invalid! Try again later...";
+                System.out.println("Congratulations, you guessed the number!");
+                break;
             }
-
-            System.out.println(result);
         }
     }
+}
 
